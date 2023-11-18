@@ -1,0 +1,5 @@
+# Unused data
+data/
+
+# Windows WSL
+*.Identifier
