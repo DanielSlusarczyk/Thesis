@@ -3,3 +3,5 @@ data/
 
 # Windows WSL
 *.Identifier
+
+*.txt
