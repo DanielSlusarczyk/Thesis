@@ -7,10 +7,10 @@ def DescribeData(df: pd.DataFrame):
     
 
     print(f'Size: {nmbOfRows} x {nmbOfColumns}\n')
-    print(pd.DataFrame(df.isnull().sum(), columns=['Number of Nans']).T)
-    print(df.describe())
+    display(pd.DataFrame(df.isnull().sum(), columns=['Number of Nans']).T)
+    display(df.describe())
 
-    print(df.head(3))
+    display(df.head(3))
 
 def SplitDateColumn(df: pd.DataFrame, column: str, suffix = '', replace=False):
     
@@ -30,3 +30,7 @@ def SplitDateColumn(df: pd.DataFrame, column: str, suffix = '', replace=False):
         df.drop(column, axis = 1, inplace=True)
 
     return df
+
+def AddPrefixToColumns(df: pd.DataFrame, columns: [str], preffix: str):
+    for column in columns:
+        df.rename(columns={column : preffix + column}, inplace=True)
