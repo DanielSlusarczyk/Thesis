@@ -1,3 +1,4 @@
+import datetime
 from sklearn.metrics import mean_squared_error as MSE
 from sklearn.metrics import mean_absolute_error as MAE
 import plotly.express as px
@@ -14,12 +15,12 @@ class EvaluteModel():
 
         self.__createTest(random_state)
 
-    def test(self, model, random_day=False):
+    def test(self, model, random_day=None):
         self.results = pd.DataFrame()
         self.resultsPerCounty = pd.DataFrame(columns=['County', 'MAE', 'MSE'])
 
-        if random_day:
-            self.__createTest()
+        if random_day is not None:
+            self.__createTest(random_day)
 
         self.y_pred = model.predict(self.X_test)
         self.y_val = model.predict(self.validationTest)
@@ -32,10 +33,14 @@ class EvaluteModel():
 
         self.__Plot()
 
-    def __createTest(self, random_state=None):
+    def __createTest(self, random_day = None, random_state=None):
         # Create practical test from data
-        self.random_day = self.toTest['datetime_date'].sample(random_state=random_state).iloc[0]
-        self.validationData =self. toTest[
+        if random_day is not None:
+            self.random_day = random_day
+        else:
+            self.random_day = self.toTest['datetime_date'].sample(random_state=random_state).iloc[0]
+
+        self.validationData = self.toTest[
             (self.toTest.datetime_date == self.random_day)
         ]
 

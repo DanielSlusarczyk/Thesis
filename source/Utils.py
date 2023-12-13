@@ -1,4 +1,4 @@
-import numpy as np
+from datetime import date, timedelta
 import pandas as pd
 
 def DescribeData(df: pd.DataFrame):
@@ -34,3 +34,52 @@ def SplitDateColumn(df: pd.DataFrame, column: str, suffix = '', replace=False):
 def AddPrefixToColumns(df: pd.DataFrame, columns: [str], preffix: str):
     for column in columns:
         df.rename(columns={column : preffix + column}, inplace=True)
+
+def IsEstionianHoliday(day: date):
+    year = day.year
+    easter = EasterSunday(year)
+
+    if (
+        # New Year's Day
+        day == date(year, 1, 1) or
+        # Independence Day
+        day == date(year, 2, 24) or
+        # Good Friday
+        day == easter - timedelta(days=2) or
+        # Easter Sunday
+        day == easter or
+        # Spring Day
+        day == date(year, 5, 1) or
+        # Pentecost
+        day == easter + timedelta(days=49) or
+        # Victory Day
+        day == date(year, 6, 23) or
+        # Midsummer Day
+        day == date(year, 6, 24) or
+        # Day of Restoration of Independence
+        day == date(year, 8, 20) or
+        # Christmas Eve
+        day == date(year, 12, 24) or
+        # Christmas Day
+        day == date(year, 12, 25) or
+        # Boxing day
+        day == date(year, 12, 26)
+        ):
+        return True
+    
+    return False
+
+def EasterSunday(year):
+    g = year % 19
+    c = year // 100
+    h = (c - (c // 4) - ((8 * c + 13) // 25) + 19 * g + 15) % 30
+    i = h - (h // 28) * (1 - (h // 28) * (29 // (h + 1)) * ((21 - g) // 11))
+
+    day = i - ((year + (year // 4) + i + 2 - c + (c // 4)) % 7) + 28
+    month = 3
+
+    if day > 31:
+        month += 1
+        day -= 31
+
+    return date(year, month, day)
