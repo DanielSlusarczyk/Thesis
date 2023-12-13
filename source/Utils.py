@@ -69,6 +69,9 @@ def IsEstionianHoliday(day: date):
     
     return False
 
+def IsWeekend(day: date):
+    return day.weekday() >= 5
+
 def EasterSunday(year):
     g = year % 19
     c = year // 100
