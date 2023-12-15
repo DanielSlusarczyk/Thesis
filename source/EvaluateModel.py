@@ -14,12 +14,12 @@ class EvaluteModel():
 
     def test(self, model, random_day=None):
         self.results = pd.DataFrame()
-        self.resultsPerCounty = pd.DataFrame(columns=['County', 'MAE', 'MSE'])
+        self.resultsPerCounty = pd.DataFrame(columns=['County', 'MAE', 'RMSE'])
 
         self.y_pred = model.predict(self.X_test)
 
         self.__MAE()
-        self.__MSE()
+        self.__RMSE()
         self.__metricsPerCounty()
         display(self.results)
         display(self.resultsPerCounty)
@@ -44,11 +44,15 @@ class EvaluteModel():
     def __MAE(self):
         self.results['MAE'] = [MAE(self.y_pred, self.y_test)]
 
-    def __MSE(self):
-        self.results['MSE'] = [MSE(self.y_pred, self.y_test)]
+    def __RMSE(self):
+        self.results['RMSE'] = [MSE(self.y_pred, self.y_test, squared=False)]
+
+    def selector(self, column_name):
+        # just need to be careful that "column_name" is not any other string in "hovertemplate" data
+        f = lambda x: True if column_name in x['hovertemplate'] else False
+        return f
 
     def __Plot(self, random_day = None):
-
         # Get random date for plot
         if random_day is not None:
             self.random_day = random_day
@@ -69,5 +73,26 @@ class EvaluteModel():
         validationData = self.validationData[['datetime', 'target', 'is_consumption', 'is_business', 'predictions']].copy()
         validationData = validationData.groupby(by=['datetime', 'is_consumption', 'is_business']).mean().reset_index()
 
-        fig = px.line(validationData, x='datetime', y=['target', 'predictions'], facet_col='is_consumption', facet_row='is_business', title=f'Example')
+        fig = px.line(
+                    validationData.rename(columns={'target': 'Cel', 'predictions': 'Predykcja'}),
+                    x='datetime',
+                    y=['Cel', 'Predykcja'], 
+                    facet_col='is_consumption', 
+                    facet_row='is_business', 
+                    title=f'Test działania modelu',
+                    labels={
+                          'is_business' : 'Biznes',
+                          'datetime' : 'Data',
+                          'value': 'Wartość'}, height=700, width=1000)
+        
+        # Add custom plot style
+        fig.update_traces(patch={"line": {"dash": "dot"}}, selector=self.selector('Predykcja'))
+        fig.update_layout(legend_title_text='Zmienne')
+        fig.update_xaxes(tickformat="%d-%m")
+        fig.for_each_annotation(lambda a: a.update(
+            text=a.text
+            .replace('is_consumption=True', 'Konsumpcja')
+            .replace('is_consumption=False', 'Produkcja')
+            .replace('=True', '(Tak)')
+            .replace('=False', '(Nie)')))
         fig.show()
