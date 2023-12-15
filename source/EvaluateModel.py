@@ -2,7 +2,6 @@ import datetime
 from sklearn.metrics import mean_squared_error as MSE
 from sklearn.metrics import mean_absolute_error as MAE
 import plotly.express as px
-import numpy as np
 import pandas as pd
 
 class EvaluteModel():
