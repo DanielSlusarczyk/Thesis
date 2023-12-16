@@ -7,8 +7,8 @@ def DescribeData(df: pd.DataFrame):
     
 
     print(f'Size: {nmbOfRows} x {nmbOfColumns}\n')
-    display(pd.DataFrame(df.isnull().sum(), columns=['Number of Nans']).T)
-    display(df.describe())
+    display(pd.DataFrame(df.isnull().sum(), columns=['Number of Nans']))
+    display(df.describe().T)
 
     display(df.head(3))
 

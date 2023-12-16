@@ -92,7 +92,7 @@ class EvaluteModel():
         # Add custom plot style
         fig.update_traces(patch={"line": {"dash": "dot"}}, selector=self.selector('Predykcja'))
         fig.update_layout(legend_title_text='Zmienne')
-        fig.update_xaxes(tickformat="%d-%m")
+        fig.update_xaxes(tickformat="%d-%m-%Y")
         fig.for_each_annotation(lambda a: a.update(
             text=a.text
             .replace('is_consumption=True', 'Konsumpcja')
