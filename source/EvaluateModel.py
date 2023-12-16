@@ -12,11 +12,15 @@ class EvaluteModel():
         self.county_names = county_names
         self.random_day = random_state
 
-    def test(self, model, random_day=None):
+    def test(self, model, random_day=None, normalization=None):
         self.results = pd.DataFrame()
         self.resultsPerCounty = pd.DataFrame(columns=['County', 'MAE', 'RMSE'])
 
         self.y_pred = model.predict(self.X_test)
+
+        # For handling trend issue in target
+        if normalization is not None:
+            self.y_pred = self.y_pred * normalization
 
         self.__MAE()
         self.__RMSE()
