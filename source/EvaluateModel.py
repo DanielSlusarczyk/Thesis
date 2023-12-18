@@ -10,7 +10,7 @@ class EvaluteModel():
         self.y_test = y_test
         self.X_validation = X_validation
         self.county_names = county_names
-        self.random_day = random_state
+        self.random_state = random_state
 
     def test(self, model, random_day=None, normalization=None):
         self.results = pd.DataFrame()
