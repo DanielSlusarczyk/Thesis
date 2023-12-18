@@ -5,10 +5,14 @@ def DescribeData(df: pd.DataFrame):
     nmbOfRows = df.shape[0]
     nmbOfColumns = df.shape[1]
     
-
     print(f'Size: {nmbOfRows} x {nmbOfColumns}\n')
-    display(pd.DataFrame(df.isnull().sum(), columns=['Number of Nans']))
-    display(df.describe().T)
+    display(pd.DataFrame(df.isnull().sum(), columns=['Brakujące dane']))
+    display(df.describe().T.rename(columns={
+        'min' : 'Minimum',
+        'max' : 'Maksium',
+        'count' : 'Liczebność',
+        'std' : 'Odch. Stand.',
+        'mean' : 'Średnia'}))
 
     display(df.head(3))
 
