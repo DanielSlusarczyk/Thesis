@@ -21,6 +21,7 @@ class EvaluteModel():
         # For handling trend issue in target
         if normalization is not None:
             self.y_pred = self.y_pred * normalization
+            self.y_test['target'] = self.y_test['target'] * normalization
 
         self.__MAE()
         self.__RMSE()
@@ -29,6 +30,7 @@ class EvaluteModel():
         display(self.resultsPerCounty)
 
         self.__Plot(random_day)
+        self.__FeatureImportance(model)
     
     def __metricsPerCounty(self):
         validationData = self.X_test[['county']].copy()
@@ -99,4 +101,22 @@ class EvaluteModel():
             .replace('is_consumption=False', 'Produkcja')
             .replace('=True', '(Tak)')
             .replace('=False', '(Nie)')))
+        fig.show()
+
+
+    def __FeatureImportance(self, model):
+        feature_importance= model.get_booster().get_score(importance_type="gain")
+
+        keys = list(feature_importance.keys())
+        values = list(feature_importance.values())
+
+        data = pd.DataFrame({'Atrybut' : keys, 'Waga' : values}).sort_values(by = 'Waga', ascending=False)[0:15]
+
+        fig = px.bar(
+            data,
+            x='Atrybut',
+            y='Waga',
+            height=250,
+            width=1000,
+            title='Waga atrybutów')
         fig.show()
