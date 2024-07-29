@@ -1,6 +1,6 @@
 [:gb: English version :gb:](README_ENG.md)
 
-## Temat
+## :small_blue_diamond: Temat
 **Prognozowanie bilansu energetycznego prosumentów na przykładzie Estonii**
 
 ## :small_blue_diamond: Repozytorium
