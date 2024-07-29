@@ -1,14 +1,13 @@
-* [Wersja po polsku 🇵🇱](#🇵🇱-temat)
-* [English version 🇬🇧](#🇬🇧-subject)
+* [Wersja po polsku 🇵🇱](#temat)
+* [English version 🇬🇧](#subject)
 
-## 🇵🇱 Temat
+## Temat
+**Prognozowanie bilansu energetycznego prosumentów na przykładzie Estonii**
 
-> Prognozowanie bilansu energetycznego prosumentów na przykładzie Estonii
-
-## <span style='color:#2563eb'>|  <b></span>Repozytorium</b>
+## :small_blue_diamond: Repozytorium
 Repozytorium przeznaczone pracy inżynierskiej. Zawiera wszystkie pliki źródłowe wykorzystywane do opracowania projektu i pracę dyplomową.
 
-## <span style='color:#2563eb'>|  <b></span>Pliki</b>
+## :small_blue_diamond: Pliki
 Zawartość repozytorium:
 |Plik|Zawartość|
 |-|-|
@@ -17,7 +16,7 @@ Zawartość repozytorium:
 |`Models.ipynb`|notebook z opracowanymi modelami uczenia maszynowego|
 |`source/*`|dodatkowe pliki źródłowe używane w notebookach|
 
-## <span style='color:#2563eb'>|  <b></span>Streszczenie</b>
+## :small_blue_diamond: Streszczenie
 <div style="text-align: justify">
 Rynek energii elektrycznej ulega nieustannym transformacjom. Jedną z przyczyn takiej sytuacji
 jest aktualna tendencja do zwiększenia wykorzystania odnawialnych źródeł energii. W rezultacie
@@ -47,13 +46,15 @@ rozwiązanie może stanowić efektywne narzędzie z perspektywy operatora sieci 
 dalszej eksploracji poruszanej problematyki.
 </div>
 
-## 🇬🇧 Subject
-> Forecasting the energy balance of prosumers on the example of Estonia
+***
 
-## <span style='color:#2563eb'>|  <b></span>Repository</b>
+## Subject
+**Forecasting the energy balance of prosumers on the example of Estonia**
+
+## :small_blue_diamond: Repository
 Repository intended for engineering work. Contains all source files used to develop the project and the thesis.
 
-## <span style='color:#2563eb'>|  <b></span>Files</b>
+## :small_blue_diamond: Files
 Repository content:
 |File|Content|
 |-|-|
@@ -62,7 +63,7 @@ Repository content:
 |`Models.ipynb`|notebook with developed machine learning models|
 |`source/*`|additional source files used in notebooks|
 
-## <span style='color:#2563eb'>|  <b></span>Abstract</b>
+## :small_blue_diamond: Abstract
 
 <div style="text-align: justify">
 The electricity market is constantly transforming. One of the reasons for this situation is the tendency
