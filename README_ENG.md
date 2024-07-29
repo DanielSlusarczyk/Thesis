@@ -1,4 +1,4 @@
-## Subject
+## :small_blue_diamond: Subject
 **Forecasting the energy balance of prosumers on the example of Estonia**
 
 ## :small_blue_diamond: Repository
