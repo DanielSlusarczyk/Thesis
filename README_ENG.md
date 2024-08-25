@@ -15,7 +15,7 @@ Repository content:
 
 ## :small_blue_diamond: Abstract
 
-<div style="text-align: justify">
+ <div align="justify">
 The electricity market is constantly transforming. One of the reasons for this situation is the tendency
 to increase the use of renewable energy sources. As a result, the prosumer as a participant of the power
 grid is becoming continuously even more important. Prosumers are capable of not only consuming
