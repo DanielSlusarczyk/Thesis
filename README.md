@@ -24,8 +24,7 @@ zainstalowanej mikroinstalacji jest w stanie nie tylko konsumować energię elek
 aktywnie ją produkować. Konsekwencją rozpowszechnienia produkcji energii przez instalacje małej
 mocy jest powiększenie problemu nierównowagi energetycznej, czyli sytuacji, w której wyprodukowana
 energia nie pokrywa się z rzeczywistym zapotrzebowaniem. Charakteryzujące się dużą złożonością
-zużycie energii podmiotów posiadających własne instalacje powoduje problemy logistyczne i fi-
-nansowe dla przedsiębiorstw energetycznych, a w konsekwencji zwiększenie kosztów operacyjnych
+zużycie energii podmiotów posiadających własne instalacje powoduje problemy logistyczne i finansowe dla przedsiębiorstw energetycznych, a w konsekwencji zwiększenie kosztów operacyjnych
 i nieefektywne wykorzystanie produkowanej energii. Rozwiązanie tego problemu skutkowałoby
 zwiększeniem niezawodności sieci, a także poprawieniem integracji mikroinstalacji z centralnymi
 źródłami energii zarządzanymi przez operatora. Efektywnie działający system stanowiłby dodatkowy
