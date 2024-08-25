@@ -16,7 +16,7 @@ Zawartość repozytorium:
 |`source/*`|dodatkowe pliki źródłowe używane w notebookach|
 
 ## :small_blue_diamond: Streszczenie
-<div style="text-align: justify">
+ <div align="justify">
 Rynek energii elektrycznej ulega nieustannym transformacjom. Jedną z przyczyn takiej sytuacji
 jest aktualna tendencja do zwiększenia wykorzystania odnawialnych źródeł energii. W rezultacie
 uczestnikiem sieci elektroenergetycznej przybierającym na znaczeniu jest prosument, który za sprawą
